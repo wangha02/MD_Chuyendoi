@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Amount</h1>
+<input id="nhaptien">
+<h1>From Currency</h1>
+<select id="chuyendoi" onchange="chuyenDoi()">
+    <option value="VND">VietNam</option>
+    <option value="USD">USD</option>
+</select>
+<h1>To Currency</h1>
+<select id="chuyendoi2" onchange="chuyenDoi()">
+    <option value="VND">VietNam</option>
+    <option value="USD">USD</option>
+</select>
+
+<br>
+<button onclick="chuyenDoi()">Convert</button>
+<h1 id="Ketqua"></h1>
+<script>
+    function chuyenDoi() {
+        let ketQua;
+        let nhapTien = +document.getElementById('nhaptien').value;
+        let nhap = document.getElementById('chuyendoi').value;
+        console.log('chuyen', nhap);
+        let xuat = document.getElementById('chuyendoi2').value;
+        console.log('xuat', xuat)
+        if (nhap === xuat) {
+            ketQua = nhapTien;
+        } else {
+            if (nhap === "VND") {
+                ketQua = nhapTien / 23000;
+            } else {
+                ketQua = nhapTien * 23000;
+            }
+        }
+    document.getElementById('Ketqua').innerText = ketQua + " " + xuat
+    }
+
+</script>
+</body>
+</html>
